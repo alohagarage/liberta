@@ -1,0 +1,21 @@
+  @font-face {
+    font-family: 'AlteHaasGrotesk';
+    src: local('?'), url('fonts/AlteHaasGroteskRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'AlteHaasGroteskBold';
+    src: local('?'), url('fonts/AlteHaasGroteskBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+  body {
+    font-family: 'AlteHaasGrotesk', sans-serif;
+  }
+  h1, h2, h3 {
+    font-family: 'AlteHaasGroteskBold', sans-serif;
+  }
+  ol {
+    list-style-type: lower-alpha;
+  }
