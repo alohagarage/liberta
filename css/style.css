@@ -11,11 +11,23 @@
     font-style: normal;
   }
   body {
-    font-family: 'AlteHaasGrotesk', sans-serif;
+    font-family: 'Helvetica', sans-serif;
   }
   h1, h2, h3 {
     font-family: 'AlteHaasGroteskBold', sans-serif;
   }
   ol {
     list-style-type: lower-alpha;
+  }
+  #container {
+    width: 85%;
+    margin: 5% 0 0 5%;
+  }
+  #main {
+    width: 60%;
+    float: left;
+  }
+  #side-column {
+    width: 25%;
+    float: right;
   }
