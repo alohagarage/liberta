@@ -14,20 +14,24 @@
     font-family: 'Helvetica', sans-serif;
     color: #333333;
     font-size: 1em;
+    line-height: 1.5em;
+    background-color: #fefefb;
   }
   h1, h2, h3 {
     font-family: 'AlteHaasGroteskBold', sans-serif;
   }
   ol {
-    list-style-type: lower-alpha;
   }
 
   #side-notes {
     list-style: none;
+    /*
+    display: none;
+    */
   }
   #container {
     width: 85%;
-    margin: 5% 0 0 5%;
+    margin: 3% 0 0 5%;
   }
   #main {
     width: 60%;
