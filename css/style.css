@@ -12,12 +12,18 @@
   }
   body {
     font-family: 'Helvetica', sans-serif;
+    color: #333333;
+    font-size: 1em;
   }
   h1, h2, h3 {
     font-family: 'AlteHaasGroteskBold', sans-serif;
   }
   ol {
     list-style-type: lower-alpha;
+  }
+
+  #side-notes {
+    list-style: none;
   }
   #container {
     width: 85%;

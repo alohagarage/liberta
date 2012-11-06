@@ -153,6 +153,7 @@
   
 </body>
 <script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
   function alignNotes() {
     var notesList = [];
     $.each($('.side-note'), function(i, val) {
@@ -168,8 +169,21 @@
     })
   }
   alignNotes();
+  $('.side-note').hover(function() {
+    var noteNo = $(this).data('note');
+    var $sideNote = $('#side-notes li:nth-child(' + noteNo + ')');
+      //$sideNote.css('font-weight', 'bold');
+      $sideNote.css({'color': 'black', 'font-size': '1.03em'});
+    }, function() {
+    var noteNo = $(this).data('note');
+    var $sideNote = $('#side-notes li:nth-child(' + noteNo + ')');
+      //$sideNote.css('font-weight', 'normal');
+      $sideNote.css({'color': '#333333', 'font-size': '1em'});
+    });
+
   $(window).resize(function() {
     alignNotes()
     });
+  });
 </script>
 </html>
