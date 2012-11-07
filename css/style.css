@@ -25,10 +25,11 @@
 
   #side-notes {
     list-style: none;
+    display: none;
   }
   #container {
     width: 85%;
-    margin: 3% 0 0 5%;
+    margin: 5% 0 0 5%;
   }
   #main {
     width: 60%;
@@ -37,4 +38,17 @@
   #side-column {
     width: 25%;
     float: right;
+  }
+  #nav {
+    color: #efefef;
+    position: fixed;
+    top: 20px;
+    right: 10px;
+    font-size: 3em;
+    -webkit-transition-property: color;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease;
+  }
+  #nav:hover {
+    color: #333333;
   }

@@ -1,6 +1,7 @@
 <html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="css/font-awesome.css" title="" type="text/css" />
   <link rel="stylesheet" href="css/style.css" title="" type="text/css" />
   <script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
   <script type="text/javascript" src="js/less-1.3.1.min.js"></script>
@@ -9,6 +10,9 @@
   
 </head>
 <body>
+  <div id="nav">
+    <i class="icon-th-list"></i>
+  </div>
   <div id="container">
   <div id="main">
   <h2>Effect of Web-Based Social Gaming on Complex Grammatical Competencies</h2>
@@ -154,7 +158,7 @@
         The Futurists weren't only impelled by technology, they employed it to 
         express themselves. In the field of literature, Marinetti and his cohort 
         strained at the limits of typographic technology. The Futurist architect 
-        ______ imagined structures and possibilities for cities that are only now 
+        <a href="#" class="citation">Alberto Sant'Elia</a> imagined structures and possibilities for cities that are only now 
         being realized. <a href="#" class="citation">P. Russolo</a> started the 
         development of the synthesizer with his <em>Intonarumori</em> instruments 
         and predicted the rise of new forms of atonal and electronic music in his treatise 
@@ -214,9 +218,10 @@
           $('#side-notes #' + noteId).css({
             'position': 'absolute',
             'top': citePos,
-            }).show();
+            });
           
         
+    $('#side-notes').show();
     })
   }
   alignNotes();
