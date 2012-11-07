@@ -254,6 +254,15 @@
       $('#side-notes #' + noteId).css({'color': '#333333', 'font-size': '1em'});
     });
 
+  $(".scroll").click(function(event){
+    event.preventDefault();
+    $('html,body').animate({scrollTop:$(this.hash).offset().top}, 700, "easeOutCubic");
+  });
+
+  $(".scroll-top").click(function(event){
+    $('html,body').animate({scrollTop:$('#nav-bar').offset().top - 15}, 700, "easeOutCubic");
+  });
+
   $(window).resize(function() {
     alignNotes()
     });
