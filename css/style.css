@@ -42,13 +42,19 @@
   #nav {
     color: #efefef;
     position: fixed;
-    top: 20px;
+    top: 0px;
     right: 10px;
-    font-size: 3em;
+    height: 3em;
     -webkit-transition-property: color;
     -webkit-transition-duration: 0.5s;
     -webkit-transition-timing-function: ease;
   }
   #nav:hover {
     color: #333333;
+  }
+  #nav i {
+    position: fixed;
+    top: .35em;
+    right: .3em;
+    font-size: 3em;
   }
