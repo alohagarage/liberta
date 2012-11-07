@@ -233,6 +233,19 @@
     })
   }
   alignNotes();
+  $('#nav-bar').hover(function() {
+    $('#nav-bar a').addClass('glow')
+    }, function() {
+    $('#nav-bar a').removeClass('glow')
+    });
+  $('#nav').hover(function() {
+    $('#nav-bar a').addClass('glow')
+    }, function() {
+    //$('#nav-bar a').removeClass('glow')
+    });
+  $('#nav-bar a').click(function() {
+      $('#nav-bar a').removeClass('glow')
+  });
   $('.citation').hover(function() {
     var noteId = $(this).data('note');
       $('#side-notes #' + noteId).css({'color': 'black', 'font-size': '1.03em'});
