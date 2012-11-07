@@ -28,8 +28,7 @@
     display: none;
   }
   #container {
-    width: 85%;
-    margin: 5% 0 0 5%;
+    margin: 0 0 0 5%;
   }
   #main {
     width: 60%;
@@ -57,4 +56,41 @@
     top: .35em;
     right: .3em;
     font-size: 3em;
+  }
+
+  #nav-bar {
+    font-family: 'AlteHaasGroteskBold', sans-serif;
+    top: 0;
+    /*
+    border-bottom: 1px solid #333333;
+    */
+    margin: 0 0 0 5%;
+    height: 5%;
+    width: 60%;
+  }
+  #nav-bar ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  #nav-bar li {
+    display: inline;
+    margin: 0 1em 0 0;
+    padding: 0;
+    font-size: 2em;
+    text-transform: uppercase;
+    /*
+    border: 1px solid #333333;
+    */
+  }
+  #nav-bar a {
+    text-decoration: none;
+    color: #fefefb;
+    -webkit-transition-property: color;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease;
+  }
+
+  #nav-bar .glow {
+    color: #333333;
   }
