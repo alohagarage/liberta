@@ -121,8 +121,8 @@
         <li><strong>Play</strong>
           <p>
           While subsequent avant-garde movements, such as <a href="#" class="citation" 
-          data-note="1">Dada</a> from Switzerland and the more well-known French 
-          <a href="#" class="citation" data-note="2">Surrealism</a> are more 
+          data-note="1" data-freebase="dada">Dada</a> from Switzerland and the more well-known French 
+          <a href="#" class="citation" data-note="2" data-freebase="surrealism">Surrealism</a> are more 
           commonly identified as "playful" &#8212Most likely because of the 
           Futurists' warlike tone&#8212 the Futurists also held play and the 
           ludic in high esteem. One need only reference their famous <em>Soiree 
@@ -138,7 +138,7 @@
           <p>
           While the importance of play, chance and risk in art may now seem obvious, 
           what may not have seemed obvious at the time was the pedagogical value 
-          of chance. But there are have been <a href="#" class="citation" data-note="3">several</a> studies on 
+          of chance. But there are have been <a href="#" class="citation" data-freebase="futurism" data-note="3">several</a> studies on 
           importance of play and chance in pedagogy.
           </p>
         </li>
@@ -217,19 +217,30 @@
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function() {
 
+  var freebaseTextUrl = 'https://www.googleapis.com/freebase/v1/text/en/';
+
+
   function alignNotes() {
-    var notesList = [];
     $.each($('.citation'), function(i, val) {
           var noteId = $(val).data('note');
+          var query = $(val).data('freebase');
+          var $noteId = $('#side-notes #' + noteId);
+          $.getJSON(freebaseTextUrl + query,
+            function(response) {
+              //console.log(response['result'])
+              var excerpt = '<div>' + response['result'] + '</div>';
+              var lStr = response['result'].split(' ');
+              var shortExcerpt = lStr.slice(0,25).join(' ') + ' <a href="#">Expand</a>';
+              $noteId.html(excerpt);
+            });
           var citePos = parseInt($(val).position().top) + .5;
-          notesList.push(citePos);
-          $('#side-notes #' + noteId).css({
+          $noteId.css({
             'position': 'absolute',
             'top': citePos,
             });
           
         
-    $('#side-notes').show();
+    //$('#side-notes').show();
     })
   }
   alignNotes();
@@ -241,7 +252,6 @@
   $('#nav').hover(function() {
     $('#nav-bar a').addClass('glow')
     }, function() {
-    //$('#nav-bar a').removeClass('glow')
     });
   $('#nav-bar a').click(function() {
       $('#nav-bar a').removeClass('glow')
@@ -253,14 +263,23 @@
     var noteId = $(this).data('note');
       $('#side-notes #' + noteId).css({'color': '#333333', 'font-size': '1em'});
     });
+  $('.citation').click(function() {
+    console.log('click');
+    var noteId = $(this).data('note');
+    $('#side-notes #' + noteId).toggle()
+    //console.log($('#side-notes #' + noteId));
+    return false
+    });
 
   $(".scroll").click(function(event){
     event.preventDefault();
-    $('html,body').animate({scrollTop:$(this.hash).offset().top}, 700, "easeOutCubic");
+    //$('html,body').animate({scrollTop:$(this.hash).offset().top}, 700, "easeInOutExpo");
+    $('html,body').animate({scrollTop:$(this.hash).offset().top}, 700);
   });
 
   $(".scroll-top").click(function(event){
-    $('html,body').animate({scrollTop:$('#nav-bar').offset().top - 15}, 700, "easeOutCubic");
+    //$('html,body').animate({scrollTop:$('#nav-bar').offset().top - 15}, 700, "easeInOutExpo");
+    $('html,body').animate({scrollTop:$('#nav-bar').offset().top - 15}, 700);
   });
 
   $(window).resize(function() {
