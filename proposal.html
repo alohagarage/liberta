@@ -5,7 +5,9 @@
   <link rel="stylesheet" href="css/style.css" title="" type="text/css" />
   <script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
   <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-  <script type="text/javascript" src="js/less-1.3.1.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js" charset="utf-8"> </script>
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/base/jquery-ui.css" title="" type="text/css" />
+  <!-- <script type="text/javascript" src="js/less-1.3.1.min.js"></script> -->
   <title>Research Proposal</title>
   
 </head>
@@ -227,8 +229,7 @@
           var $noteId = $('#side-notes #' + noteId);
           $.getJSON(freebaseTextUrl + query,
             function(response) {
-              //console.log(response['result'])
-              var excerpt = '<div>' + response['result'] + '</div>';
+              var excerpt = '<div class="expand">' + response['result'] + '</div>';
               var lStr = response['result'].split(' ');
               var shortExcerpt = lStr.slice(0,25).join(' ') + ' <a href="#">Expand</a>';
               $noteId.html(excerpt);
@@ -237,12 +238,13 @@
           $noteId.css({
             'position': 'absolute',
             'top': citePos,
-            });
+            }).addClass('side-note');
           
         
     //$('#side-notes').show();
     })
   }
+
   alignNotes();
   $('#nav-bar').hover(function() {
     $('#nav-bar a').addClass('glow')
@@ -270,6 +272,11 @@
     //console.log($('#side-notes #' + noteId));
     return false
     });
+
+  $('.side-note').live('click', function() {
+      $(this).toggleClass('expand contract')
+      });
+  $('.side-note').draggable();
 
   $(".scroll").click(function(event){
     event.preventDefault();

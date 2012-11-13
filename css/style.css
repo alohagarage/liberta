@@ -39,8 +39,10 @@
     box-shadow: inset 0 0 8px #bfbfbf;
   }
   #side-notes li:after {
+    /*
     content: "More";
     color: steelblue;
+    */
   }
   #side-notes li div {
     /* Isn't there an excerpt overflow in css3?
@@ -100,6 +102,7 @@
     padding: 0;
     font-size: 2em;
     text-transform: uppercase;
+    height: 100%;
     /*
     border: 1px solid #333333;
     */
@@ -114,4 +117,13 @@
 
   #nav-bar .glow {
     color: #333333;
+  }
+
+  .expand {
+    height: 100%
+  }
+
+  .contract {
+    height: 50%;
+    overflow: hidden
   }
