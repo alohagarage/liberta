@@ -188,22 +188,92 @@
         <li>Fragmentation</li>
       </ul>
     <h3>Defense of Liberta Structure </h3>
-    <ul>
-      <li>Web Application</li>
-      <li>Social</li>
-    </ul>
+    <p>Liberta takes the form of a web application for a variety of reasons. 
+    The first is that of accessibility. By definition, a web application is a 
+    an application that can be run in most browsers, without the necessity of 
+    downloading anything. These means that web applications are accessible to 
+    anyone with an internet connection and a browser. Since nothing needs to be 
+    installed, students will be able to play the game regardless of their admin 
+    privileges or the specific capabilities of their device.</p>
+    <p>Web Applications like Liberta, which are built according to web standards 
+    and the tenets of responsive design are device agnostic, meaning that will 
+    function on a wide range of devices, with a wide range of processing 
+    capabilities and display sizes. Liberta will work on desktop just as well 
+    as on a tablet or a smartphone.</p>
+    <p>Web applications such as Liberta generally make a distinction between 
+    client side processing and server-side data storage. This means that data 
+    persists between interfaces. A user can play a game on his desktop, then one 
+    on his phone on the bus and both games will count torwards his cumulative 
+    score.</p>
+    <p>While data persistence is important for user experience (UX) reasons, 
+    it also helps in the collection of use metrics. Thus, the application can 
+    record games played, average session time, device use, etc., across a variety 
+    of platforms and devices.</p>
+    <p>Casual gaming is distinguished from "hardcore gaming" by the fact that 
+    casual games often have simple rules, have minimal graphical requirements 
+    and can be started and resumed without penalty. In short, they are designed 
+    to be played in short bursts. Thus, even when the game is multi-player, the 
+    time between turns is not defined and thus can be played asynchronously. 
+    This facilitates distributed game play among social networks.</p>
+    <p>The use of casual gaming in education is not very well documented, but 
+    there is good reason to be hopeful. Casual gaming as a segment is very large 
+    and growing, with a demographic that is markedly <a href="http://en.wikipedia.org/wiki/Casual_game"> 
+      more diverse</a> than the "hardcore" market. The simple gameplay of casual 
+    gaming is suited to repitious, simple tasks, some of which are necessary in 
+    education. And finally, the games' structure encourages users to play in 
+    their off time. This allows for a much more efficient use of the students' 
+    time and will, hopefully, increase the overall time on task.</p>
     <h3>Teaching About vs. Teaching Through</h3>
   <h2 id="design">Research Method, Design and Proposed Statistical Analysis</h2>
+    <p>The goal of this project is to measure the correlation between use of the 
+    Liberta application and the implementation of complex grammatical competencies.
+    </p>
+    <p>All participants' grammatical competency will be assessed at the beginning 
+    of the project through the use of a <a href="http://www.useit.com/alertbox/cloze-test.html">Cloze test.</a> 
+    The Cloze test will be completely randomized so as to give a general indication 
+    of the participant's general grammatical competency.
+    </p>
+    <p>Once the Cloze test has been given, participants will be divided into experimental 
+    and control groups. The experimental group will be trained in the use of the 
+    application and then instructed to use the application as much as they see 
+    fit. The control group will continue with traditional instruction.</p>
+    <p>After the experimental period, another Cloze test will be performed to assess 
+    the change in competency (if any).</p>
+    <p>The primary statistical analysis will try to determine:
+    <ol>
+      <li><strong>Correlation of use v. non-use.</strong>This will primarily 
+      compare the post-experiment competency of users and non-users. Both static 
+      and delta variables will be compared.</li>
+      <li><strong>Correlation of usage metrics to competency.</strong>Within the 
+      experimental group, a correlation will be sought between metrics such as 
+      hours used, games played, time of day used, etc. and competency delta.</li>
+    </ol>
+    </p>
   <h2>Human Subject Interactions</h2>
   <ol>
-    <li>Sources of Potential Participants</li>
-    <li>Procedure for the Recruitment of the Participants</li>
-    <li>Procedure for Obtaining Informed Consent</li>
-    <li>Research Protocol</li>
-    <li>Privacy and Confidentiality of Participants</li>
-    <li>Confidentiality of Research Data</li>
+    <li>Sources of Potential Participants: Participants will be drawn from the 
+    students of my RHE306Q class. Participation is voluntary and no student will 
+    be penalized for non-participation.</li>
+    <li>Procedure for the Recruitment of the Participants: See above.</li>
+    <li>Procedure for Obtaining Informed Consent: Students will be given consent 
+    documents with at least a day's notice. Since students in RHE306Q have a 
+    diverse language competency, they may need more time to go over the documents.</li>
+    <li>Research Protocol: All students will be given two Cloze tests, one at 
+    the beginning of the experimental period, one at the end. The first test 
+    will be accompanied by a brief survey regarding the students' usage of web 
+    technology. These tests have no bearing on the students' grades. During 
+    the experimental period, the experimental group will use Liberta.</li>
+    <li>Privacy and Confidentiality of Participants: Participants will be assigned 
+    a randomly-generated PIN that will used to link their test results to their usage 
+    metrics. Any social-media functionality that the application uses (such as 
+    posting scores to Facebook) will be optional and participants will be notified in 
+    full about the effects that these features have on their privacy.</li>
+    <li>Confidentiality of Research Data: Participants' usage data will be 
+    encrypted and available only to themselves and myself. The application only 
+    allows one super-user (me).</li>
   </ol>
   <h2>Potential Risks</h2>
+  <p>This project does not present any risks not found in everyday life.</p>
   <h2 id="benefits">Potential Benefits</h2>
   </div><!-- end #main -->
   <div id="side-column">
@@ -220,7 +290,7 @@
   $(document).ready(function() {
 
   var freebaseTextUrl = 'https://www.googleapis.com/freebase/v1/text/en/';
-
+  var freebaseImgUrl = 'https://www.googleapis.com/freebase/v1/image/en/';
 
   function alignNotes() {
     $.each($('.citation'), function(i, val) {
@@ -229,7 +299,8 @@
           var $noteId = $('#side-notes #' + noteId);
           $.getJSON(freebaseTextUrl + query,
             function(response) {
-              var excerpt = '<div class="expand">' + response['result'] + '</div>';
+              var excerpt = '<div class="expand"><img src="' + freebaseImgUrl + query + '"></img>' + 
+              response['result'] + '</div>';
               var lStr = response['result'].split(' ');
               var shortExcerpt = lStr.slice(0,25).join(' ') + ' <a href="#">Expand</a>';
               $noteId.html(excerpt);
@@ -239,9 +310,6 @@
             'position': 'absolute',
             'top': citePos,
             }).addClass('side-note');
-          
-        
-    //$('#side-notes').show();
     })
   }
 

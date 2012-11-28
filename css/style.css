@@ -50,6 +50,9 @@
     overflow: hidden;
     */
   }
+  #side-notes li img {
+    float: left;
+  }
   #container {
     margin: 0 0 0 5%;
   }
