@@ -1,143 +1,17 @@
 <html>
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
-    <title>Liberta</title>
-    <style>
-        #sort-area {
-            margin: 2em
-        }
-
-        #sortable li {
-            display: inline;
-            border: 1px solid black;
-            padding: 1em;
-            border-radius: 10px;
-            background-color: white;
-        }
-
-    </style>
-
-    
-</head>
-<body>
-    <div id="sort-area">
-        <ul style="list-style: none; cursor: pointer" id="sortable">
-        </ul>
-    </div>
-    <div id="submit">
-        <button id="submit-button">Done?</button>
-    </div>
-    <div id="timer">
-    </div>
-    
-    
-    <script>
-        $(document).ready(function() {
-        var attempts = 0;
-
-        function fisherYates(anArray) {
-            var i = anArray.length;
-            if (i == 0) return false;
-            while (--i) {
-                var j = Math.floor( Math.random() * (i + 1));
-                var tempi = anArray[i];
-                var tempj = anArray[j];
-                anArray[i] = tempj;
-                anArray[j] = tempi;
-            }
-            return anArray
-        }
-
-        function Sentence() {
-            this.attempts = attempts + 1;
-            this.origSent = 'Foxing is a quarterly literary journal';
-            this._splitSent = this.origSent.split(' ');
-            this.scrambledSent = fisherYates(this._splitSent);
-            this.displaySent = function() {
-                var listArray = [];
-                $.each(this.scrambledSent, function(i, val) {
-                    listArray.push('<li class="word" id="' + i + '">' + val + '</li>');
-                });
-                $('#sortable').append(listArray.join(''));
-            }
-        }
-
-        var s = new Sentence();
-        s.displaySent();
-        
-        var countdown;
-        var countdown_number = 10;
-
-        //function countdown_init() {
-            //countdown_number = 11;
-            //countdown_trigger();
-        //}
-
-        //function countdown_trigger() {
-            //if(countdown_number > 0) {
-                //alert(countdown_number);
-                //countdown_number--;
-                //alert(countdown_number);
-                //$('#timer').html(countdown_number);
-                //if(countdown_number > 0) {
-                    //countdown = setTimeout('countdown_trigger()', 1000);
-                //}
-            //}
-        //}
-
-        //function countdown_clear() {
-            //clearTimeout(countdown);
-        //}
-
-        //countdown_init();
-
-        function updateNum() {
-            if (countdown_number > 0) {
-            $('#timer').text(countdown_number);
-            countdown_number--;
-            //alert('ping');
-            } else {
-            clearInterval(countdown);
-            //alert('Donezo!')
-            $('#timer').text('Donezo!')
-            }
-        }
-
-
-        $(function() {
-            $( "#sortable" ).sortable();
-            $( "#sortable" ).disableSelection();
-        });
-
-        $('#submit').click(function() {
-            var answer = [];
-            $('.word').each(function(i, val) {
-                answer.push($(val).text());
-            });
-            answer = answer.join(' ');
-            if (answer == origSent) {
-                alert('yes');
-                } else {
-                alert('no');
-            }
-        });
-
-        //while (countdown_number > 0) {
-
-        countdown = setInterval(updateNum, 1000);
-
-        //}
-
-        //updateNum();
-        //updateNum();
-        //updateNum();
-        //updateNum();
-        //updateNum();
-
-
-        });
-    </script>
-</body>
+  <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+      <link rel="stylesheet" href="/static/css/style.css" title="" type="text/css" />
+      <script type="text/javascript" src="/static/js/display.js"></script>
+      <title>Liberta</title>
+  </head>
+  <body>
+    <svg height="50" width="50">
+    <text fill="blue" x="0" y="0">
+    hello
+    </text>
+    </svg>
+  </body>
 </html>

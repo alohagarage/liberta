@@ -10,6 +10,30 @@
     font-weight: bold;
     font-style: normal;
   }
+  @font-face {
+    font-family: 'Blackout';
+    src: local('?'), url('fonts/blackout_midnight-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'BlackoutSunrise';
+    src: local('?'), url('fonts/blackout_sunrise-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Blackout2Am';
+    src: local('?'), url('fonts/blackout_two_am-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Raleway';
+    src: local('?'), url('fonts/raleway_thin-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
   body {
     font-family: 'Helvetica', sans-serif;
     color: #333333;
