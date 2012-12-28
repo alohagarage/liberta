@@ -19,10 +19,5 @@ import webapp2
 import classes
 import patternlocal
 
-app = webapp2.WSGIApplication([ ('/query', classes.QueryHandler), 
-                                ('/settings', classes.SettingsHandler), 
-                                ('/savequery',classes.QueryIdHandler),
-                                (r'/(\S{11})', classes.QueryURLHandler),
-                                ('/archivedquery', classes.ArchivedQueryHandler),
-                                (r'/.*', classes.MainHandler)],
+app = webapp2.WSGIApplication([ (r'/.*', classes.MainHandler)],
                                 debug=True)
